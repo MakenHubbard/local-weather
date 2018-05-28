@@ -18,15 +18,16 @@ const showResults = (searchZip) => {
 
 // http://api.openweathermap.org/data/2.5/weather?q=London&appid=XXXXXX&units=imperial
 
-const searchLWDB = () => {
+const searchLWDB = (userInput) => {
   return new Promise((resolve, reject) => {
-    $.ajax(`http://samples.openweathermap.org/data/2.5/weather?q=London&appid=${lwdbKey}&units=imperial`)
+    $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${userInput}&appid=${lwdbKey}&units=imperial`)
       .done((result) => {
         resolve(result.results);
       })
       .fail((err) => {
         reject(err);
       });
+    console.error('inside the api call', userInput);
   });
 };
 
