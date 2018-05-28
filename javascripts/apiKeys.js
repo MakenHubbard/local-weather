@@ -14,8 +14,8 @@ const apiKeys = () => {
 
 const retrieveKeys = () => {
   apiKeys()
-    .then((result) => {
-      lwdb.setKey(result.lwdb.apiKey);
+    .then((results) => {
+      lwdb.setKey(results.lwdb.apiKey);
     })
     .catch((err) => {
       console.error('no keys:', err);
