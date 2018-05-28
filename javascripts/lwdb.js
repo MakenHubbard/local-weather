@@ -9,6 +9,7 @@ const setKey = (key) => {
 const showResults = (searchZip) => {
   searchLWDB(searchZip)
     .then((result) => {
+      return result;
       // dom.domString(result);
     })
     .catch((err) => {
@@ -16,11 +17,9 @@ const showResults = (searchZip) => {
     });
 };
 
-// http://api.openweathermap.org/data/2.5/weather?q=London&appid=XXXXXX&units=imperial
-
 const searchLWDB = (userInput) => {
   return new Promise((resolve, reject) => {
-    $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${userInput}&appid=${lwdbKey}&units=imperial`)
+    $.ajax(`http://samples.openweathermap.org/data/2.5/weather?zip=${userInput},us&appid=${lwdbKey}&units=imperial`)
       .done((result) => {
         resolve(result.results);
       })
