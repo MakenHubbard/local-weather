@@ -1,3 +1,3 @@
 const apiKeys = require('./apiKeys');
 
-apiKeys();
+apiKeys.retrieveKeys();

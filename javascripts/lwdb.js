@@ -1,13 +1,13 @@
-const dom = require('./dom');
+// const dom = require('./dom');
 
 let lwdbKey = '';
 
-const setKey = () => {
-lwdbKey = key;
+const setKey = (key) => {
+  lwdbKey = key;
 };
 
 const showResults = (searchZip) => {
-   searchLWDB(searchZip)
+  searchLWDB(searchZip)
     .then((result) => {
       // dom.domString(result);
     })
@@ -16,8 +16,21 @@ const showResults = (searchZip) => {
     });
 };
 
-// const searchLWDB = () => {
-//   return new Promise ((resolve, reject) => {
-//     $.ajax(`http://samples.openweathermap.org/data/2.5/weather?&api-key=${zip=94040,us&appid=b6907d289e10d714a6e88b30761fae22)
-//   })
-// }
+// http://api.openweathermap.org/data/2.5/weather?q=London&appid=XXXXXX&units=imperial
+
+const searchLWDB = () => {
+  return new Promise((resolve, reject) => {
+    $.ajax(`http://samples.openweathermap.org/data/2.5/weather?q=London&appid=${lwdbKey}&units=imperial`)
+      .done((result) => {
+        resolve(result.results);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
+module.exports = {
+  showResults,
+  setKey,
+};
