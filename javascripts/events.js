@@ -3,7 +3,7 @@ const lwdb = require('./lwdb');
 const searchZip = () => {
   $('#zipCode').click((e) => {
     const userInput = $('#userZip').val();
-    lwdb.showResults(userInput);
+    lwdb.showOneDay(userInput);
     console.error(userInput);
   });
 };
