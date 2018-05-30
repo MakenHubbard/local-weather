@@ -6,6 +6,12 @@ const searchZip = () => {
     lwdb.showOneDay(userInput);
     console.error(userInput);
   });
+  $(document).keypress((e) => {
+    const userInput = $('#userZip').val();
+    if (e.key === 'Enter') {
+      lwdb.showOneDay(userInput);
+    };
+  });
 };
 
 const initializer = () => {
