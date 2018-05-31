@@ -1,4 +1,4 @@
-// const dom = require('./dom');
+const dom = require('./dom');
 
 let lwdbKey = '';
 
@@ -6,11 +6,10 @@ const setKey = (key) => {
   lwdbKey = key;
 };
 
-const showOneDay = (searchZip) => {
-  searchOneDay(searchZip)
+const showOneDay = (searchZip, days) => {
+  searchOneDay(searchZip, days)
     .then((result) => {
-      return result;
-      // dom.domString(result);
+      dom.domString(result, days);
     })
     .catch((err) => {
       console.error('search error', err);
@@ -28,20 +27,34 @@ const showOneDay = (searchZip) => {
 //     });
 // };
 
-const searchOneDay = (userInput) => {
-  return new Promise((resolve, reject) => {
-    // $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${userInput}&appid=${lwdbKey}`)
-    $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${userInput},us&appid=${lwdbKey}&units=imperial`)
-      .done((result) => {
-        console.error(result);
-        resolve(result);
-      })
-      .fail((err) => {
-        reject(err);
-      });
-    console.error('inside the api call', userInput);
-    console.error('inside the api call', lwdbKey);
-  });
+const searchOneDay = (userInput, days) => {
+  if (days === 1) {
+    return new Promise((resolve, reject) => {
+      $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${userInput},us&appid=${lwdbKey}&units=imperial`)
+        .done((result) => {
+          console.error(result);
+          resolve(result);
+        })
+        .fail((err) => {
+          reject(err);
+        });
+      console.error('inside the api call', userInput);
+      console.error('inside the api call', lwdbKey);
+    });
+  } else if (days !== 1) {
+    return new Promise((resolve, reject) => {
+      $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${userInput}&appid=${lwdbKey}&units=imperial`)
+        .done((result) => {
+          console.error(result);
+          resolve(result);
+        })
+        .fail((err) => {
+          reject(err);
+        });
+      console.error('inside the api call', userInput);
+      console.error('inside the api call', lwdbKey);
+    });
+  };
 };
 
 // const searchFiveDay = (userInput) => {
