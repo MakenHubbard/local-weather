@@ -12,14 +12,16 @@
 </head>
 
 <body>
-  <div align="center">
-    <div align="center">
-      <h1>Check your local weather!</h1>
+  <div>
+    <div class="row">
+      <div class="col-sm-6 col-md-offset-4">
+        <h1>Check your local weather!</h1>
+      </div>
     </div>
-    <div>
-      <div class="col-sm-3" align="center">
+    <div class="row text-center">
+      <div class="col-sm-4 col-md-offset-4">
         <div class="input-group">
-          <input  id="userZip" type="text" class="form-control" placeholder="Search for...">
+          <input id="userZip" type="text" class="form-control" placeholder="Search for...">
           <span class="input-group-btn">
             <button id="zipCode" class="btn btn-default" type="button">Go!</button>
           </span>
@@ -27,7 +29,9 @@
       </div>
     </div>
   </div>
-
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4" id="report"></div>
+  </div>
 
 
 
