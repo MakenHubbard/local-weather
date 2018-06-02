@@ -38,8 +38,6 @@ const searchOneDay = (userInput, days) => {
         .fail((err) => {
           reject(err);
         });
-      console.error('inside the api call', userInput);
-      console.error('inside the api call', lwdbKey);
     });
   } else if (days !== 1) {
     return new Promise((resolve, reject) => {
@@ -51,8 +49,6 @@ const searchOneDay = (userInput, days) => {
         .fail((err) => {
           reject(err);
         });
-      console.error('inside the api call', userInput);
-      console.error('inside the api call', lwdbKey);
     });
   };
 };

@@ -6,7 +6,7 @@ const domString = (results, day) => {
     strung += `<div class="row">`;
     strung += `<div class="col-sm-6 col-md-6">`;
     strung += `<div class="thumbnail">`;
-    strung += `<h1 align="center">${moment().format('<b>dddd</b> </br> MMMM do, YYYY')}</h1>`;
+    strung += `<h1 align="center">${moment().format('<b>dddd</b> </br> MMMM Do, YYYY')}</h1>`;
     strung += `<div class="caption">`;
     strung += `<p align="center">Average Temperature: <b>${Math.ceil(results.main.temp)} F</p>`;
     strung += `<p><strong>Conditions:</strong> ${results.weather[0].description} <img src="http://openweathermap.org/img/w/${results.weather[0].icon}.png"> </p>`;
@@ -24,28 +24,32 @@ const domString = (results, day) => {
     strung += `</div>`;
 
   } else {
-    console.error('rsu;t',results);
-    results.list.forEach((result) => {
-      strung += `<div class="row">`;
-      strung += `<div class="col-sm-6 col-md-6">`;
-      strung += `<div class="thumbnail">`;
-      strung += `<h1 align="center">${moment().format('<b>dddd</b> </br> MMMM do, YYYY')}</h1>`;
-      strung += `<div class="caption">`;
-      strung += `<p align="center">Average Temperature: <b>${Math.ceil(result.main.temp)} F</p>`;
-      strung += `<p><strong>Conditions:</strong> ${result.weather[0].description} <img src"http://openweathermap.org/img/w/${result.weather[0].icon}.png"> </p>`;
-      strung += `<ul type="circle">`;
-      strung += `<li>Humidity: ${result.main.humidity}%</li>`;
-      strung += `<li>Barometric Pressure: ${result.main.pressure} hPa</li>`;
-      strung += `<li>Temp. High: ${Math.ceil(result.main.temp_max)} F</li>`;
-      strung += `<li>Temp. Low: ${Math.ceil(result.main.temp_min)} F</li>`;
-      strung += `<li>Wind Speed: ${Math.ceil(result.wind.speed)} mph</li>`;
-      strung += `</ul>`;
-      strung += `<p><a href="#" class="btn btn-primary" role="button">5-Day Forecast</a></p>`;
-      strung += `</div>`;
-      strung += `</div>`;
-      strung += `</div>`;
-      strung += `</div>`;
+    console.error('5 day', results);
+    results.list.forEach((result, i) => {
+      const time = moment(result.dt_txt);
+      if (time.hour() === 12) {
+        strung += `<div class="row">`;
+        strung += `<div class="col-sm-6 col-md-6">`;
+        strung += `<div class="thumbnail">`;
+        strung += `<h1 align="center">${time.format('<b>dddd</b> </br> MMMM Do, YYYY')}</h1>`;
+        strung += `<div class="caption">`;
+        strung += `<p align="center">Average Temperature: <b>${Math.ceil(result.main.temp)} F</p>`;
+        strung += `<p><strong>Conditions:</strong> ${result.weather[0].description} <img src"http://openweathermap.org/img/w/${result.weather[0].icon}.png"> </p>`;
+        strung += `<ul type="circle">`;
+        strung += `<li>Humidity: ${result.main.humidity}%</li>`;
+        strung += `<li>Barometric Pressure: ${result.main.pressure} hPa</li>`;
+        strung += `<li>Temp. High: ${Math.ceil(result.main.temp_max)} F</li>`;
+        strung += `<li>Temp. Low: ${Math.ceil(result.main.temp_min)} F</li>`;
+        strung += `<li>Wind Speed: ${Math.ceil(result.wind.speed)} mph</li>`;
+        strung += `</ul>`;
+        strung += `<p><a href="#" class="btn btn-primary" role="button">5-Day Forecast</a></p>`;
+        strung += `</div>`;
+        strung += `</div>`;
+        strung += `</div>`;
+        strung += `</div>`;
+      };
     });
+
   };
   printOneDayToDom(strung);
 };
