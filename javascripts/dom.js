@@ -18,6 +18,9 @@ const domString = (results, day) => {
     strung += `<li>Wind Speed: ${Math.ceil(results.wind.speed)} mph</li>`;
     strung += `</ul>`;
     strung += `<p><a href="#" id="5-days-btn" class="btn btn-primary" role="button">5-Day Forecast</a></p>`;
+    strung += `<a href="#" id="saveLink" class="saveTo">Add to favy's</a>`;
+    strung += `</br>`;
+    strung += `<a href="#" id="viewSavedBtn" class="btn btn-info" role="button">View your days</a>`;
     strung += `</div>`;
     strung += `</div>`;
     strung += `</div>`;
@@ -43,6 +46,9 @@ const domString = (results, day) => {
         strung += `<li>Wind Speed: ${Math.ceil(result.wind.speed)} mph</li>`;
         strung += `</ul>`;
         strung += `<p><a href="#" class="btn btn-primary" role="button">5-Day Forecast</a></p>`;
+        strung += `<a href="#" id="saveLink" class="saveTo">Add to favy's</a>`;
+        strung += `</br>`;
+        strung += `<a href="#" id="viewSavedBtn" class="btn btn-info" role="button">View your days</a>`;
         strung += `</div>`;
         strung += `</div>`;
         strung += `</div>`;

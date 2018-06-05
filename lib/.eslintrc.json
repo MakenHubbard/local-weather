@@ -5,6 +5,9 @@
     "browser": true,
     "jquery": true
   },
+  "globals": {
+    "firebase": true
+  },
   "rules": {
     "arrow-spacing": ["error", { "before": true, "after": true }],
     "block-spacing": ["error", "always"],

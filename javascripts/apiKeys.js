@@ -15,7 +15,7 @@ const apiKeys = () => {
 const retrieveKeys = () => {
   apiKeys()
     .then((results) => {
-      lwdb.setKey(results.lwdb.apiKey);
+      firebase.initializeApp(results.firebaseKeys);
     })
     .catch((err) => {
       console.error('no keys:', err);
