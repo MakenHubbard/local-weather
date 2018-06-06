@@ -1,11 +1,17 @@
 let firebaseConfig = {};
+// let uid = '';
 
 const setConfig = (fbConfig) => {
   firebaseConfig = fbConfig;
 };
 
+// const setUID = (newUID) => {
+//   uid = newUID;
+// };
+
 const saveDayToFavorites = (newWeather) => {
-  return new Promise((resolve, rejcet) => {
+  // newWeather.uid = uid;
+  return new Promise((resolve, reject) => {
     $.ajax({
       method: `POST`,
       url: `${firebaseConfig.databaseURL}/weather.json`,
@@ -29,7 +35,7 @@ const getAllWeather = () => {
     })
       .done((allWeatherObj) => {
         if (allWeatherObj !== null) {
-          Object.keys(allWeatherObj).forEach((fbKey) =>{
+          Object.keys(allWeatherObj).forEach((fbKey) => {
             allWeatherObj[fbKey].id = fbKey;
             allWeatherArray.push(allWeatherObj[fbKey]);
           });
@@ -43,7 +49,8 @@ const getAllWeather = () => {
 };
 
 module.exports = {
- setConfig,
- saveDayToFavorites,
- getAllWeather,
+  setConfig,
+  // setUID,
+  saveDayToFavorites,
+  getAllWeather,
 };

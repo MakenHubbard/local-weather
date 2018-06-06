@@ -1,4 +1,5 @@
 const lwdb = require('./lwdb');
+const firebaseApi = require('./firebaseApi');
 
 const apiKeys = () => {
   return new Promise ((resolve, reject) => {
@@ -15,7 +16,9 @@ const apiKeys = () => {
 const retrieveKeys = () => {
   apiKeys()
     .then((results) => {
-      firebase.initializeApp(results.firebaseKeys);
+      lwdb.setKey(results.lwdb.apiKey);
+      firebaseApi.setConfig(results.firebase);
+      firebase.initializeApp(results.firebase);
     })
     .catch((err) => {
       console.error('no keys:', err);

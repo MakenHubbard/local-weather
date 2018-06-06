@@ -23,11 +23,12 @@ const searchZip = () => {
 const saveEvent = () => {
   $(document).on('click', '#saveLink', (e) => {
     firebaseApi.saveDayToFavorites();
-  })
+  });
 };
 
 const initializer = () => {
   searchZip();
+  saveEvent();
 };
 
 module.exports = {
