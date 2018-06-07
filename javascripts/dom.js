@@ -40,7 +40,7 @@ const domString = (results, day) => {
         strung += `<p class="condition" data-condition="${result.weather[0].description}"><strong>Conditions:</strong> ${result.weather[0].description} <img class="condImage" data-condImage="${result.weather[0].icon}" src"http://openweathermap.org/img/w/${result.weather[0].icon}.png"> </p>`;
         strung += `<ul type="circle">`;
         strung += `<li class="humid" data-humid="${result.main.humidity}">Humidity: ${result.main.humidity}%</li>`;
-        strung += `<li class="bp" data-bp="${result.main.pressure}">Barometric Pressure: ${result.main.pressure} hPa</li>`;
+        strung += `<li class="bP" data-bP="${result.main.pressure}">Barometric Pressure: ${result.main.pressure} hPa</li>`;
         strung += `<li>Temp. High: ${Math.ceil(result.main.temp_max)} F</li>`;
         strung += `<li>Temp. Low: ${Math.ceil(result.main.temp_min)} F</li>`;
         strung += `<li class="blowPower" data-blowPower="${Math.ceil(result.wind.speed)}">Wind Speed: ${Math.ceil(result.wind.speed)} mph</li>`;

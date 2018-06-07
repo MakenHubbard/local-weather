@@ -29,10 +29,10 @@ const saveEvent = () => {
       conditions: addedToFavs.find('.condition').data().condition,
       icon: addedToFavs.find('.condImage').data().condImage,
       humidity: addedToFavs.find('.humid').data().humid,
-      barometric: addedToFavs.find('.bp'). data().bp,
-      //
+      barometric: addedToFavs.find('.bP'). data().bP,
+      windSpeed: addedToFavs.find('.blowPower').data().blowPower,
     };
-    firebaseApi.saveDayToFavorites();
+    firebaseApi.saveDayToFavorites(favForecast);
   });
 };
 
