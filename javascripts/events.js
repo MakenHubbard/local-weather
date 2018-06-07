@@ -22,6 +22,16 @@ const searchZip = () => {
 
 const saveEvent = () => {
   $(document).on('click', '#saveLink', (e) => {
+    const addedToFavs = $(e.target).closest('.forecasts');
+    const favForecast = {
+      date: addedToFavs.find('.date').data().date,
+      temp: addedToFavs.find('.temp').data().temp,
+      conditions: addedToFavs.find('.condition').data().condition,
+      icon: addedToFavs.find('.condImage').data().condImage,
+      humidity: addedToFavs.find('.humid').data().humid,
+      barometric: addedToFavs.find('.bp'). data().bp,
+      //
+    };
     firebaseApi.saveDayToFavorites();
   });
 };

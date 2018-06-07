@@ -11,6 +11,7 @@ const setConfig = (fbConfig) => {
 
 const saveDayToFavorites = (newWeather) => {
   // newWeather.uid = uid;
+  console.error('asdfkjdsaf',newWeather);
   return new Promise((resolve, reject) => {
     $.ajax({
       method: `POST`,
