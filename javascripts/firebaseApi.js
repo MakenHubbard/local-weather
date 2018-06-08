@@ -9,14 +9,13 @@ const setConfig = (fbConfig) => {
 //   uid = newUID;
 // };
 
-const saveDayToFavorites = (newWeather) => {
-  // newWeather.uid = uid;
-  console.error('asdfkjdsaf',newWeather);
+const saveDayToFavorites = (savedWeather) => {
+  // savedWeather.uid = uid;
   return new Promise((resolve, reject) => {
     $.ajax({
       method: `POST`,
       url: `${firebaseConfig.databaseURL}/weather.json`,
-      data: JSON.stringify(newWeather),
+      data: JSON.stringify(savedWeather),
     })
       .done((uniqueKey) => {
         resolve(uniqueKey);
