@@ -13,7 +13,7 @@
 
 <body>
   <div>
-    <div class="row">
+    <div class="row" id="typeInZip">
       <div class="col-sm-6 col-md-offset-4">
         <h1>Check your local weather!</h1>
       </div>
@@ -29,13 +29,80 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="weatherReportDiv">
     <div class="col-md-6 col-md-offset-4" id="report"></div>
   </div>
 
   <div class="hide" id="myWeather">
     <h1>My Favy Days</h1>
     <div id="savedDays"></div>
+  </div>
+
+  <div class="text-center" id="authScreen" class="hide">
+    <div id="login-form">
+      <h1 class="text-center">Sign In</h1>
+      <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+        <div id="signin-error" class="alert alert-danger hide" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          <span id="signin-error-msg"></span>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <a href="#" id="register-link">Need to Register?</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" id="signIn-btn" class="btn btn-default">Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="registration-form" class="hide">
+      <h1 class="text-center">Registration</h1>
+      <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+        <div id="register-error" class="alert alert-danger hide" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          <span id="register-error-msg"></span>
+        </div>
+        <div class="form-group">
+          <label for="registerEmail" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <a href="#" id="signIn-link">Go To Login</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" id="register-btn" class="btn btn-default">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 
 

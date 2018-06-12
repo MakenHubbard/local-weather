@@ -1,16 +1,16 @@
 let firebaseConfig = {};
-// let uid = '';
+let uid = '';
 
 const setConfig = (fbConfig) => {
   firebaseConfig = fbConfig;
 };
 
-// const setUID = (newUID) => {
-//   uid = newUID;
-// };
+const setUID = (newUID) => {
+  uid = newUID;
+};
 
 const saveDayToFavorites = (savedWeather) => {
-  // savedWeather.uid = uid;
+  savedWeather.uid = uid;
   return new Promise((resolve, reject) => {
     $.ajax({
       method: `POST`,
@@ -27,8 +27,8 @@ const saveDayToFavorites = (savedWeather) => {
 };
 
 const getAllWeather = () => {
+  const allWeatherArray = [];
   return new Promise((resolve, reject) => {
-    const allWeatherArray = [];
     $.ajax({
       method: `GET`,
       url: `${firebaseConfig.databaseURL}/weather.json`,
@@ -50,7 +50,7 @@ const getAllWeather = () => {
 
 module.exports = {
   setConfig,
-  // setUID,
+  setUID,
   saveDayToFavorites,
   getAllWeather,
 };
