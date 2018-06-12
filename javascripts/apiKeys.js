@@ -14,15 +14,18 @@ const apiKeys = () => {
 };
 
 const retrieveKeys = () => {
-  apiKeys()
-    .then((results) => {
-      lwdb.setKey(results.lwdb.apiKey);
-      firebaseApi.setConfig(results.firebase);
-      firebase.initializeApp(results.firebase);
-    })
-    .catch((err) => {
-      console.error('no keys:', err);
-    });
+  return new Promise ((resolve, reject) => {
+    apiKeys()
+      .then((results) => {
+        lwdb.setKey(results.lwdb.apiKey);
+        firebaseApi.setConfig(results.firebase);
+        firebase.initializeApp(results.firebase);
+        resolve();
+      })
+      .catch((err) => {
+        console.error('no keys:', err);
+      });
+  });
 };
 
 module.exports = {
