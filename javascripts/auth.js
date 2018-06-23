@@ -1,17 +1,17 @@
-let uid = '';
+// let uid = '';
 
-const getUid = () => {
-  return uid;
-};
+// const getUid = () => {
+//   return uid;
+// };
 
-const setUid = () => {
-  uid = newUid;
-};
+// const setUid = () => {
+//   uid = newUid;
+// };
 
-const loginInStatus = () => {
-  firebas.auth().onAuthStateChanged((user) => {
-    if(user) {
-      setUid(user.uid);
-    };
-  });
-};
+// const loginInStatus = () => {
+//   firebas.auth().onAuthStateChanged((user) => {
+//     if(user) {
+//       setUid(user.uid);
+//     };
+//   });
+// };
