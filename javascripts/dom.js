@@ -2,7 +2,6 @@ const moment = require('../lib/node_modules/moment');
 
 const domString = (results, day) => {
   let strung = '';
-  console.error(results);
   if (day === 1) {
     strung += `<div class="row forecasts">`;
     strung += `<div class="col-sm-6 col-md-6">`;
@@ -28,8 +27,8 @@ const domString = (results, day) => {
     strung += `</div>`;
 
   } else {
-    console.error('5 day', results);
     results.list.forEach((result, i) => {
+      console.error(result);
       const time = moment(result.dt_txt);
       if (time.hour() === 12) {
         strung += `<div class="row forecasts">`;
@@ -64,7 +63,7 @@ const domString = (results, day) => {
 const savedWeatherDomBuilder = (favForecast) => {
   let strung = '';
   favForecast.forEach((forecast) => {
-    strung += `<div class="row forecasts">`;
+    strung += `<div class="row forecasts" data-firebase-id="${forecast.id}">`;
     strung += `<div class="col-sm-6 col-md-6">`;
     strung += `<div class="thumbnail">`;
     strung += `<h1 align="center" class="date" data-date="${forecast.date}"</h1>`;
