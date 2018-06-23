@@ -48,9 +48,26 @@ const getAllWeather = () => {
   });
 };
 
+const deleteFavDayFromFirebase = (forecast) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${firebaseConfig.databaseURL}/weather/${forecast}.json`,
+    })
+      .done(() => {
+        console.log('inside done');
+        resolve();
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   setConfig,
   setUID,
   saveDayToFavorites,
   getAllWeather,
+  deleteFavDayFromFirebase,
 };
