@@ -1,0 +1,15 @@
+{
+	"apiKeys": {
+		"lwdb": {
+			"apiKey": "51faf64f5b34438d0f1dbb7d2149fe9e"
+		},
+		"firebase": {
+			"apiKey": "AIzaSyA60IBmeev7fDMXE6pRXW39F2OECndpMFQ",
+			"authDomain": "local-weather-a19a8.firebaseapp.com",
+			"databaseURL": "https://local-weather-a19a8.firebaseio.com",
+			"projectId": "local-weather-a19a8",
+			"storageBucket": "",
+			"messagingSenderId": "44458146357"
+		}
+	}
+}

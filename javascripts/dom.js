@@ -55,7 +55,6 @@ const domString = (results, day) => {
         strung += `</div>`;
       };
     });
-
   };
   printOneDayToDom(strung);
 };
