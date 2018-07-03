@@ -9,7 +9,7 @@ const domString = (results, day) => {
     strung += `<h1 align="center" class="date" data-date="${moment().format('<b>dddd</b> </br> MMMM Do, YYYY')}">${moment().format('<b>dddd</b> </br> MMMM Do, YYYY')}</h1>`;
     strung += `<div class="caption">`;
     strung += `<p align="center" class="temp" data-temp="${Math.ceil(results.main.temp)}">Average Temperature: <b>${Math.ceil(results.main.temp)} F</p>`;
-    strung += `<p class="condition" data-condition="${results.weather[0].description}"><strong>Conditions:</strong> ${results.weather[0].description} <img class="condImage" data-condImage="${results.weather[0].icon}"src="http://openweathermap.org/img/w/${results.weather[0].icon}.png"> </p>`;
+    strung += `<p class="condition" data-condition="${results.weather[0].description}"><strong>Conditions:</strong> ${results.weather[0].description} <img class="condImage" data-condImage="${results.weather[0].icon}"src="https://openweathermap.org/img/w/${results.weather[0].icon}.png"> </p>`;
     strung += `<ul type="circle">`;
     strung += `<li class="humid data-humid="${results.main.humidity}">Humidity: ${results.main.humidity}%</li>`;
     strung += `<li class="bp" data-bp="${results.main.pressure}">Barometric Pressure: ${results.main.pressure} hPa</li>`;
@@ -28,7 +28,6 @@ const domString = (results, day) => {
 
   } else {
     results.list.forEach((result, i) => {
-      console.error(result);
       const time = moment(result.dt_txt);
       if (time.hour() === 12) {
         strung += `<div class="row forecasts">`;
@@ -37,7 +36,7 @@ const domString = (results, day) => {
         strung += `<h1 align="center" class="date" data-date="${result.dt_txt}">${time.format('<b>dddd</b> </br> MMMM Do, YYYY')}</h1>`;
         strung += `<div class="caption">`;
         strung += `<p align="center" class="temp" data-temp="${Math.ceil(result.main.temp)}">Average Temperature: <b>${Math.ceil(result.main.temp)} F</p>`;
-        strung += `<p class="condition" data-condition="${result.weather[0].description}"><strong>Conditions:</strong> ${result.weather[0].description} <img class="condImage" data-condImage="${result.weather[0].icon}" src"http://openweathermap.org/img/w/${result.weather[0].icon}.png"> </p>`;
+        strung += `<p class="condition" data-condition="${result.weather[0].description}"><strong>Conditions:</strong> ${result.weather[0].description} <img class="condImage" data-condImage="${result.weather[0].icon}" src"https://openweathermap.org/img/w/${result.weather[0].icon}.png"> </p>`;
         strung += `<ul type="circle">`;
         strung += `<li class="humid" data-humid="${result.main.humidity}">Humidity: ${result.main.humidity}%</li>`;
         strung += `<li class="bp" data-bp="${result.main.pressure}">Barometric Pressure: ${result.main.pressure} hPa</li>`;
@@ -68,7 +67,7 @@ const savedWeatherDomBuilder = (favForecast) => {
     strung += `<h1 align="center" class="date" data-date="${forecast.date}"</h1>`;
     strung += `<div class="caption">`;
     strung += `<p align="center" class="temp">Average Temperature: <b>${forecast.temp} F</p>`;
-    strung += `<p class="condition"><strong>Conditions:</strong> ${forecast.conditions} <img class="condImage" src"http://openweathermap.org/img/w/${forecast.icon}.png"> </p>`;
+    strung += `<p class="condition"><strong>Conditions:</strong> ${forecast.conditions} <img class="condImage" src"https://openweathermap.org/img/w/${forecast.icon}.png"> </p>`;
     strung += `<ul type="circle">`;
     strung += `<li class="humid">Humidity: ${forecast.humidity}%</li>`;
     strung += `<li class="bP">Barometric Pressure: ${forecast.barometric} hPa</li>`;
@@ -90,6 +89,7 @@ const printOneDayToDom = (result) => {
 };
 
 const printSavedWeatherToDom = (result) => {
+  console.log('print ouy', result);
   $('#savedDays').html(result);
 };
 

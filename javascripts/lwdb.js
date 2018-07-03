@@ -31,7 +31,6 @@ const searchOneDay = (userInput, days) => {
     return new Promise((resolve, reject) => {
       $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${userInput}&appid=${lwdbKey}&units=imperial`)
         .done((result) => {
-          console.error(result);
           resolve(result);
         })
         .fail((err) => {
