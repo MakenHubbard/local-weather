@@ -1,51 +1,27 @@
-let uid = '';
 
-const getUid = () => {
-  return uid;
-};
-
-const setUid = () => {
-  uid = newUid;
-};
-
-const authEvents = () => {
-  $('#signIn-btn').click((e) => {
-    e.preventDefault();
-    const email = $('#inputEmail').val();
-    const pass = $('#inputPassword').val();
-    firebase.auth().signInWithEmailAndPassword(email, pass)
-      .catch((error) => {
-        $('#signin-error-msg').text(error.message);
-        $('#signin-error').removeClass('hide');
-        const errorMessage = error.message;
-        console.error(errorMessage);
-      });
-  });
+const { setUID, } = require('./firebaseApi');
 
 const checkLoginInStatus = () => {
-  firebas.auth().onAuthStateChanged((user) => {
-    if(user) {
-      setUid(user.uid);
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setUID(user.uid);
+      console.log('sign in');
       $('#theSearchPart').removeClass('hide');
       $('#weatherReportDiv').removeClass('hide');
       $('#registration-form').addClass('hide');
       $('#authScreen').addClass('hide');
-      $('#myWeather').addClass('hide');
+      $('#myWeather').removeClass('hide');
     } else {
       $('#theSearchPart').addClass('hide');
       $('#weatherReportDiv').addClass('hide');
       $('#registration-form').addClass('hide');
+      console.log('sign out');
       $('#authScreen').removeClass('hide');
       $('#myWeather').addClass('hide');
     }
   });
 };
 
-const initializer = () => {
-  authEvents();
-  checkLoginInStatus();
-};
-
 module.exports = {
-  initializer,
+  checkLoginInStatus,
 };
