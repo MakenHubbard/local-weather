@@ -19,7 +19,7 @@ const showOneDay = (searchZip, days) => {
 const searchOneDay = (userInput, days) => {
   if (days === 1) {
     return new Promise((resolve, reject) => {
-      $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${userInput},us&appid=${lwdbKey}&units=imperial`)
+      $.ajax(`https://api.openweathermap.org/data/2.5/weather?zip=${userInput},us&appid=${lwdbKey}&units=imperial`)
         .done((result) => {
           resolve(result);
         })
@@ -29,7 +29,7 @@ const searchOneDay = (userInput, days) => {
     });
   } else if (days !== 1) {
     return new Promise((resolve, reject) => {
-      $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${userInput}&appid=${lwdbKey}&units=imperial`)
+      $.ajax(`https://api.openweathermap.org/data/2.5/forecast?zip=${userInput}&appid=${lwdbKey}&units=imperial`)
         .done((result) => {
           resolve(result);
         })
