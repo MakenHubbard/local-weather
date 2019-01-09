@@ -25,7 +25,6 @@ const Links = () => {
       $('#myWeather').addClass('hide');
     } else if (e.target.id === 'register-link') {
       $('#theSearchPart').addClass('hide');
-      console.log('test');
       $('#weatherReportDiv').addClass('hide');
       $('#registration-form').removeClass('hide');
       $('#authScreen').addClass('hide');
